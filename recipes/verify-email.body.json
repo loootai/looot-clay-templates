@@ -1,0 +1,11 @@
+{
+  "endpointId": "job:people.email.verify",
+  "input": {
+    "email": "/Work Email"
+  },
+  "idempotencyKey": "clay-verify-email-/Work Email",
+  "fallback": {
+    "enabled": true,
+    "maxCostUsd": 0.02
+  }
+}

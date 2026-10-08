@@ -1,0 +1,13 @@
+{
+  "endpointId": "job:people.email.find",
+  "input": {
+    "first_name": "/First Name",
+    "last_name": "/Last Name",
+    "domain": "/Company Domain"
+  },
+  "idempotencyKey": "clay-find-email-/Company Domain-/First Name-/Last Name",
+  "fallback": {
+    "enabled": true,
+    "maxCostUsd": 0.05
+  }
+}

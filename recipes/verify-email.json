@@ -1,0 +1,55 @@
+{
+  "title": "Verify email",
+  "columnName": "looot: verify email",
+  "job": "people.email.verify",
+  "price": {
+    "pricedOn": "2026-10-08",
+    "source": "https://api.looot.ai/v1/catalog/overview?depth=jobs",
+    "cheapestPerCallUsd": 0.00145,
+    "cheapestPerResultUsd": null,
+    "providers": 13
+  },
+  "inputColumns": [
+    "Work Email"
+  ],
+  "method": "POST",
+  "endpoint": "https://api.looot.ai/v1/runs",
+  "queryString": {
+    "wait": "20"
+  },
+  "headerAccount": {
+    "name": "looot",
+    "headers": {
+      "Authorization": "Bearer <your looot agent token>"
+    }
+  },
+  "removeEmptyFields": true,
+  "rateLimit": {
+    "requestLimit": 5,
+    "durationMs": 1000
+  },
+  "body": {
+    "endpointId": "job:people.email.verify",
+    "input": {
+      "email": "/Work Email"
+    },
+    "idempotencyKey": "clay-verify-email-/Work Email",
+    "fallback": {
+      "enabled": true,
+      "maxCostUsd": 0.02
+    }
+  },
+  "fieldPaths": [
+    "normalized.fields.status",
+    "normalized.fields.deliverable",
+    "status",
+    "actualCost",
+    "runId"
+  ],
+  "runCondition": "Work Email is not empty",
+  "outputColumns": {
+    "Email Status": "normalized.fields.status",
+    "Deliverable": "normalized.fields.deliverable",
+    "looot Cost": "actualCost"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "title": "Find work email",
+  "columnName": "looot: find work email",
+  "job": "people.email.find",
+  "price": {
+    "pricedOn": "2026-10-08",
+    "source": "https://api.looot.ai/v1/catalog/overview?depth=jobs",
+    "cheapestPerCallUsd": 0.003598,
+    "cheapestPerResultUsd": 0.019,
+    "providers": 17
+  },
+  "inputColumns": [
+    "First Name",
+    "Last Name",
+    "Company Domain"
+  ],
+  "method": "POST",
+  "endpoint": "https://api.looot.ai/v1/runs",
+  "queryString": {
+    "wait": "20"
+  },
+  "headerAccount": {
+    "name": "looot",
+    "headers": {
+      "Authorization": "Bearer <your looot agent token>"
+    }
+  },
+  "removeEmptyFields": true,
+  "rateLimit": {
+    "requestLimit": 5,
+    "durationMs": 1000
+  },
+  "body": {
+    "endpointId": "job:people.email.find",
+    "input": {
+      "first_name": "/First Name",
+      "last_name": "/Last Name",
+      "domain": "/Company Domain"
+    },
+    "idempotencyKey": "clay-find-email-/Company Domain-/First Name-/Last Name",
+    "fallback": {
+      "enabled": true,
+      "maxCostUsd": 0.05
+    }
+  },
+  "fieldPaths": [
+    "normalized.fields.email",
+    "normalized.fields.check",
+    "status",
+    "actualCost",
+    "runId"
+  ],
+  "runCondition": "First Name, Last Name and Company Domain are not empty, and the row has no email yet",
+  "outputColumns": {
+    "Work Email": "normalized.fields.email",
+    "Email Check": "normalized.fields.check",
+    "looot Cost": "actualCost"
+  }
+}

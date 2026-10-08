@@ -1,0 +1,26 @@
+{
+  "name": "looot-clay-templates",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Copy-paste Clay HTTP API column recipes for looot: find a work email, verify it, enrich the company.",
+  "license": "MIT",
+  "homepage": "https://looot.ai",
+  "author": {
+    "name": "looot",
+    "url": "https://looot.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loootai/looot-clay-templates.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/recipes.test.mjs",
+    "test:live": "LOOOT_CHECK_CATALOG=1 node --test test/recipes.test.mjs",
+    "illustrations": "node scripts/build-illustrations.mjs",
+    "pages": "node scripts/build-pages.mjs"
+  }
+}

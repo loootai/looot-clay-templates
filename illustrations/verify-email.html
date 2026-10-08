@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Verify email: HTTP API column</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:#F4F6F2;color:#0B2E22;padding:28px;width:1100px}
+.note{background:#FFF6D6;border:1px solid #E6C65A;color:#5C4A00;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:600;margin-bottom:18px}
+.panel{background:#fff;border:1px solid #D5DED7;border-radius:12px;padding:22px 24px}
+h1{font-size:20px;margin-bottom:4px}
+.sub{font-size:13px;color:#4A6A5C;margin-bottom:18px}
+.row{display:grid;grid-template-columns:230px 1fr;gap:14px;padding:11px 0;border-top:1px solid #EDF1EE;align-items:start}
+.label{font-size:13px;font-weight:700;color:#2F5546}
+.value{font-size:13px}
+.mono,pre{font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-size:12.5px}
+.box{background:#F7F9F7;border:1px solid #D5DED7;border-radius:8px;padding:8px 10px;display:inline-block}
+pre{background:#0B2E22;color:#EAF4EE;border-radius:8px;padding:12px 14px;white-space:pre-wrap;line-height:1.5}
+.chip{background:#12A06A;color:#fff;border-radius:5px;padding:1px 6px;font-weight:600;white-space:nowrap}
+pre .chip{background:#5FD3A0;color:#0B2E22}
+.kv{display:flex;gap:8px;margin-bottom:6px}
+.pill{background:#E3F1EA;border:1px solid #BFE0CF;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;color:#0B4A35}
+.toggle{display:inline-block;width:34px;height:18px;border-radius:9px;background:#12A06A;position:relative;vertical-align:middle;margin-right:8px}
+.toggle:after{content:"";position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+table{border-collapse:collapse;width:100%;background:#fff;border:1px solid #D5DED7;font-size:12.5px}
+th,td{border:1px solid #E1E8E3;padding:8px 10px;text-align:left;white-space:nowrap}
+th{background:#F0F4F1;font-weight:700;color:#2F5546}
+th.looot{background:#E3F1EA;color:#0B4A35}
+td.muted{color:#8AA296}
+</style></head>
+<body><div class="note">Illustration made for this repo. It is not a screenshot of Clay, and Clay's own screen looks different.</div>
+<div class="panel">
+<h1>HTTP API column: looot: verify email</h1>
+<div class="sub">What to enter in each field of the HTTP API enrichment. Green chips are columns of your table, inserted with <span class="mono">/Column Name</span>.</div>
+<div class="row"><div class="label">Method</div><div class="value"><span class="box mono">POST</span></div></div>
+<div class="row"><div class="label">API endpoint URL</div><div class="value"><span class="box mono">https://api.looot.ai/v1/runs</span></div></div>
+<div class="row"><div class="label">Query string parameters</div><div class="value"><div class="kv"><span class="box mono">wait</span><span class="box mono">20</span></div></div></div>
+<div class="row"><div class="label">JSON body</div><div class="value"><pre>{
+  "endpointId": "job:people.email.verify",
+  "input": {
+    "email": "<span class="chip">Work Email</span>"
+  },
+  "idempotencyKey": "clay-verify-email-<span class="chip">Work Email</span>",
+  "fallback": {
+    "enabled": true,
+    "maxCostUsd": 0.02
+  }
+}</pre></div></div>
+<div class="row"><div class="label">Select header account</div><div class="value"><div style="margin-bottom:8px"><span class="pill">looot</span> saved once under Add account</div><div class="kv"><span class="box mono">Authorization</span><span class="box mono">Bearer &lt;your looot agent token&gt;</span></div></div></div>
+<div class="row"><div class="label">Field paths to return</div><div class="value"><span class="box mono" style="margin:0 6px 6px 0">normalized.fields.status</span><span class="box mono" style="margin:0 6px 6px 0">normalized.fields.deliverable</span><span class="box mono" style="margin:0 6px 6px 0">status</span><span class="box mono" style="margin:0 6px 6px 0">actualCost</span><span class="box mono" style="margin:0 6px 6px 0">runId</span></div></div>
+<div class="row"><div class="label">Remove empty fields from request</div><div class="value"><span class="toggle"></span>On</div></div>
+<div class="row"><div class="label">Rate limiting</div><div class="value">Request limit <span class="box mono">5</span> &nbsp; Duration (ms) <span class="box mono">1000</span></div></div>
+<div class="row"><div class="label">Only run if</div><div class="value">Work Email is not empty</div></div>
+</div>
+</body></html>

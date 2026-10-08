@@ -1,0 +1,11 @@
+{
+  "endpointId": "job:company.enrich",
+  "input": {
+    "domain": "/Company Domain"
+  },
+  "idempotencyKey": "clay-enrich-company-/Company Domain",
+  "fallback": {
+    "enabled": true,
+    "maxCostUsd": 0.02
+  }
+}

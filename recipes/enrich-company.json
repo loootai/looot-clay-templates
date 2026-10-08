@@ -1,0 +1,57 @@
+{
+  "title": "Enrich company",
+  "columnName": "looot: enrich company",
+  "job": "company.enrich",
+  "price": {
+    "pricedOn": "2026-10-08",
+    "source": "https://api.looot.ai/v1/catalog/overview?depth=jobs",
+    "cheapestPerCallUsd": 0.0019,
+    "cheapestPerResultUsd": 0.00145,
+    "providers": 21
+  },
+  "inputColumns": [
+    "Company Domain"
+  ],
+  "method": "POST",
+  "endpoint": "https://api.looot.ai/v1/runs",
+  "queryString": {
+    "wait": "20"
+  },
+  "headerAccount": {
+    "name": "looot",
+    "headers": {
+      "Authorization": "Bearer <your looot agent token>"
+    }
+  },
+  "removeEmptyFields": true,
+  "rateLimit": {
+    "requestLimit": 5,
+    "durationMs": 1000
+  },
+  "body": {
+    "endpointId": "job:company.enrich",
+    "input": {
+      "domain": "/Company Domain"
+    },
+    "idempotencyKey": "clay-enrich-company-/Company Domain",
+    "fallback": {
+      "enabled": true,
+      "maxCostUsd": 0.02
+    }
+  },
+  "fieldPaths": [
+    "normalized.fields.name",
+    "normalized.fields.industry",
+    "normalized.fields.size",
+    "status",
+    "actualCost",
+    "runId"
+  ],
+  "runCondition": "Company Domain is not empty",
+  "outputColumns": {
+    "Company Name": "normalized.fields.name",
+    "Industry": "normalized.fields.industry",
+    "Company Size": "normalized.fields.size",
+    "looot Cost": "actualCost"
+  }
+}
