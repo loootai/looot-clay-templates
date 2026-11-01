@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/loootai/looot-clay-templates)](LICENSE) [![Docs](https://img.shields.io/badge/docs-docs.looot.ai-12A06A)](https://docs.looot.ai)
 
 Copy-paste recipes that call [looot](https://looot.ai) from a Clay table with Clay's HTTP API column.
-looot is one key and one prepaid balance for 2,500+ data endpoints from 90+ providers. Each recipe is one
+looot is one key and one prepaid balance for 4,200+ data endpoints from 300+ providers. Each recipe is one
 column: you paste a URL and a JSON body, and looot picks a provider, falls back to the next one when the
 first finds nothing, and charges only the attempts that ran.
 
@@ -117,7 +117,7 @@ No test runs a paid looot call.
 ## Docs used
 
 - Clay HTTP API column: https://university.clay.com/docs/http-api-integration-overview, read on 2026-10-08
-- looot run request: https://api.looot.ai/openapi.json (`RunRequest`), https://docs.looot.ai/concepts/job-inputs
+- looot run request: https://docs.looot.ai/reference (`POST /v1/runs`), https://docs.looot.ai/concepts/job-inputs
 
 ## Related
 
